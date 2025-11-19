@@ -2,10 +2,9 @@ from basicgraph import *
 from algorithms import dfs
 
 def is_connected(graph):
-    visited = set()
     start = random_node(graph)
-    dfs(graph, start, visited, parent=None)
-    return len(visited) == len(graph)
+    visited_nodes = dfs(graph, start, visited=None, parent=None, print_steps=False)[1]
+    return len(visited_nodes) == len(graph)
 
 def main():
     filepath = input("Enter the file path: ")

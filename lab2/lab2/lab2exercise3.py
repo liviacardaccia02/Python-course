@@ -2,7 +2,8 @@ from basicgraph import read_graph, random_node
 from algorithms import dfs
 
 def is_acyclic(graph):
-    return dfs(graph, random_node(graph), set(), parent=None)
+    is_acyclic = dfs(graph, random_node(graph), visited=None, parent=None, print_steps=False)[0]
+    return is_acyclic
 
 def main():
     filepath = input("Enter the file path: ")
