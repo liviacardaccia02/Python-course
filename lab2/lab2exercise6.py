@@ -1,4 +1,4 @@
-from basicgraph import read_graph, random_node
+from basicgraph import read_graph
 from lab2exercise5 import bfs
 
 def radius(graph): 
