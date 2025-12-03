@@ -1,4 +1,5 @@
 from basicgraph import adjacent
+from stack import *
 
 def dfs(graph, start, visited=None, parent=None, print_steps=True):
     if visited is None:
@@ -36,3 +37,21 @@ def bfs(graph, node):
                 dist[neighbor] = dist[current] + 1
                 queue.append(neighbor)
     return pred, dist
+
+def dfsIterative(graph, start):
+    stack = Stack()
+    visited = set()
+
+    stack.push(start)
+
+    while not stack.is_empty():
+        node = stack.pop()
+
+        if node not in visited:
+            visited.add(node)
+
+            for neighbor in adjacent(graph, node):
+                if neighbor not in visited:
+                    stack.push(neighbor)
+
+    return visited
